@@ -146,6 +146,12 @@ class BasicSyntax {
                 .sortedBy { it }
                 .map { it.toUpperCase() }
                 .forEach { println("it = ${it}") }
+
+        val map = mapOf("a" to 1, "b" to 2, "c" to 3)
+        for ((k, v) in map) {
+            println("(k,v) = ($k, $v)")
+        }
+        println("map[ ${map.get("a")} ] = ${map["a"]}")
     }
 }
 
