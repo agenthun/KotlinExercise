@@ -28,7 +28,9 @@ class BasicSyntax {
         println("parseInt(str) = ${parseInt("str")}")
         forLoop1()
         forLoop2()
+        forLoop3()
         while1()
+        println("""hasPrefix("as") = ${hasPrefix("as")}""")
         rangesX()
         collections()
     }
@@ -95,13 +97,20 @@ class BasicSyntax {
         }
     }
 
+    fun forLoop3() {
+        val items = listOf("apple", "banana", "kiwi")
+        for ((index, value) in items.withIndex()) {
+            println("forLoop3(), item[$index] = ${value}")
+        }
+    }
+
     fun while1() {
         val items = listOf("apple", "banana", "kiwi")
         var index = 0
         while (index < items.size) {
             println("while1(), items = ${items[index]}")
             when (items[index]) {
-                "apple" -> {
+                "google", "apple" -> {
                     println("when(), is apple!")
                 }
                 "banana" -> {
@@ -113,6 +122,11 @@ class BasicSyntax {
             }
             index++
         }
+    }
+
+    fun hasPrefix(x: Any) = when (x) {
+        is String -> x.startsWith("prefix")
+        else -> false
     }
 
     fun rangesX() {
