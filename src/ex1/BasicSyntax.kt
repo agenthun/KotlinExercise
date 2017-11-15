@@ -33,6 +33,7 @@ class BasicSyntax {
         println("""hasPrefix("as") = ${hasPrefix("as")}""")
         rangesX()
         collections()
+        breakAndContinue()
     }
 
     fun sum1(a: Int, b: Int) = a + b
@@ -166,6 +167,37 @@ class BasicSyntax {
             println("(k,v) = ($k, $v)")
         }
         println("map[ ${map.get("a")} ] = ${map["a"]}")
+    }
+
+    fun breakAndContinue() {
+        loop@ for (i in 1..100) {
+            println("break, i = ${i}")
+            if (i == 6) break@loop
+        }
+
+        loop@ for (i in 1..100) {
+            if (i % 2 == 0) continue@loop
+            println("continue, i = ${i}")
+        }
+
+        //2不打印,continue
+        listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).forEach lit@ {
+            if (it == 2) return@lit
+            println("@lit, it = ${it}")
+        }
+
+        //2不打印,continue
+        listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).forEach {
+            if (it == 2) return@forEach
+            println("@forEach, it = ${it}")
+        }
+
+        listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).forEach {
+            fun(value: Int) {
+                if (value == 0) return
+                println("@fun, it = ${it}")
+            }
+        }
     }
 }
 
