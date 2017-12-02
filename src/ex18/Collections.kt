@@ -28,7 +28,7 @@ class Collections {
         val item = rwList.firstOrNull()
 
         val readWriteMap = hashMapOf("foo" to 1, "bar" to 2)
-        println("readWriteMap[\"foo\"] = ${readWriteMap["foo"]}")
+        println("readWriteMap[\"foo\"] = ${readWriteMap["foo"]}") //1
         val snapshot: Map<String, Int> = HashMap(readWriteMap)
     }
 }
